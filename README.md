@@ -1,7 +1,11 @@
 # Use Adversarial Inverse Reinforcement Learning (AIRL) In 2D Potential Surface
 
+![](./data/learn_result.gif)
+
 ## Build reinforcement learning environment
+
 ### The potential surface
+
 The analytical two-dimensional potential surface is given by[1]
 
 $$
@@ -16,19 +20,20 @@ The potential has two minima at $A=(-1,0)$ and $B=(1,0)$, respectively, and $x \
 
 ### The model of 2D potential surface
 
-
-
 Consider the environment as a two-dimensional harmonic oscillator. 
 
 ### The state (observation) space
+
 The observations (states) of the agent is the positionsand velocities $s \in \{ x, y, v_x, v_y\}$. 
+
 - $x \in [-1.2, 1.2]$
 - $y \in [-0.2, 1.2]$
 - $v_x,v_y \in [-v_{\text{max}},v_{\text{max}}]$
 
-
 ### The action space
+
 The agent's  $\text{action} \in \{0,1,2,3\}$. All actions are allow to be continuous values.
+
 <p align='center'>
 <img src='./data/actions_demo.png' width='50%'>
 </p>
@@ -45,9 +50,10 @@ $$
 F_{p_x},\  F_{p_y},\  f_{1_x},\  f_{1_y},\  f_{2_x},\  f_{2_y}.
 $$
 
-
 $\text{Actions} \{0,1,2,3\}$ corresponding $\text{Forces}\{f_{1_x},\  f_{1_y},\  f_{2_x},\  f_{2_y}\}$
+
 ### Observation update rule
+
 The force the potential surface giving to the agent can be split to two, 
 
 $$
@@ -74,7 +80,6 @@ $$
 a_y = f_{2_y}
 $$
 
-
 The velocity and position are updated by
 
 $$
@@ -94,19 +99,20 @@ y_{t+1} = y_{t} + v_{y_{t+1}}
 $$
 
 ### Code the environment
+
 Use [WebPlotDigitizer](https://apps.automeris.io/wpd/), sample points along the minimum-energy reaction path (MEP) can be obtains from FIG.1 in [1].  As plotted in tomato as 
 
 <p align='center'>
 <img src='./data/potential_surface_with_expert.png' width='50%'>
 </p>
 
-
 ## Get expert demonstrations
+
 In order to get expert demonstrations easily, an action $f_2$ simulator was made as below:
+
 <p align='center'>
 <img src='./data/actions.png' width='20%'>
 </p>
-
 
 Through this simulator, then
 
@@ -136,14 +142,13 @@ A typical changes of observations and actions for an expert trajectory was as be
 
 ## Apply AIRL in 2D potential surface
 
-
 ## Check the learned reward function
+
 <p align='center'>
 <img src='./data/103900_learned_rewards.png' width='50%'>
 </p>
 
 ## Check the learned policy
-
 
 ## Use learned reward function to train a optimal function
 
@@ -152,7 +157,5 @@ A typical changes of observations and actions for an expert trajectory was as be
 </p>
 
 ## Reference
+
 1. [Simplified and improved string method for computing the minimum energy paths in barrier-crossing events](https://www.researchgate.net/publication/6351826_Simplified_and_Improved_String_Method_for_Computing_the_Minimum_Energy_Paths_in_Barrier_Crossing_Events)
-
-
-
