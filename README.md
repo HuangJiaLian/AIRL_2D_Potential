@@ -1,4 +1,4 @@
-# Use Adversarial Inverse Reinforcement Learning (AIRL) In 2D Potential Surface
+# Adversarial Inverse Reinforcement Learning (AIRL) In 2D Potential Surface
 
 ![](./data/learn_result.gif)
 
